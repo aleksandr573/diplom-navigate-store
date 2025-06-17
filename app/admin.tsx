@@ -27,7 +27,7 @@ export default function AdminScreen() {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editData, setEditData] = useState({ x: '', y: '', shelf: '' });
 
-  // ✅ Безопасная навигация после монтирования
+  // навигация после монтирования
   useEffect(() => {
     const task = InteractionManager.runAfterInteractions(() => {
       if (!token) {

@@ -6,5 +6,6 @@ export default function Layout() {
     <AuthProvider>
       <Stack screenOptions={{ headerShown: true }} />
     </AuthProvider>
+    
   );
 }

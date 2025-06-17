@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [role, setRole] = useState<string | null>(null);
 
   const login = (token: string, role: string) => {
-    setUser('user'); // можно позже заменить на email
+    setUser('user'); 
     setToken(token);
     setRole(role);
   };

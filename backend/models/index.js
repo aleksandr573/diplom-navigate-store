@@ -1,21 +1,21 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const path = require('path');
 
-// ✅ Подключение к SQLite
+// Подключение к SQLite
 const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: path.join(__dirname, '../db.sqlite'), // БД будет храниться в файле db.sqlite
   logging: false,
 });
 
-// ✅ Загрузка моделей
+// Загрузка моделей
 const User = require('./user')(sequelize, DataTypes);
 const Store = require('./store')(sequelize, DataTypes);
 const Product = require('./product')(sequelize, DataTypes);
 const Route = require('./route')(sequelize, DataTypes);
 const RouteItem = require('./routeItem')(sequelize, DataTypes);
 
-// ✅ Настройка связей
+// Настройка связей
 User.hasMany(Route);
 Route.belongsTo(User);
 
@@ -25,7 +25,7 @@ Product.belongsTo(Store);
 Route.belongsToMany(Product, { through: RouteItem });
 Product.belongsToMany(Route, { through: RouteItem });
 
-// ✅ Экспорт
+// Экспорт
 const db = {
   sequelize,
   Sequelize,
